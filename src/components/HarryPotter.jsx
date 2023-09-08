@@ -3,8 +3,8 @@ import { Col, Spinner } from "react-bootstrap";
 
 class HarryPotter extends Component {
   state = {
-    data: null,
-    error: null,
+    movies: [],
+    error: "",
     isLoading: true,
   };
 
@@ -14,8 +14,8 @@ class HarryPotter extends Component {
       if (!response.ok) {
         this.setState({ error: `status: ${response.status}` });
       } else {
-        const data = await response.json();
-        this.setState({ data });
+        const movies = await response.json();
+        this.setState({ movies });
       }
     } catch (error) {
       this.setState({ error: error.message });
@@ -25,7 +25,7 @@ class HarryPotter extends Component {
   }
 
   render() {
-    const { data, error, isLoading } = this.state;
+    let { movies, error, isLoading } = this.state;
 
     if (error) {
       return <div>Error: {error}</div>;
@@ -44,7 +44,7 @@ class HarryPotter extends Component {
       );
     }
 
-    const movies = data.Search.slice(0, 6);
+    movies = movies.Search.slice(0, 6);
 
     return movies.map((movie, index) => (
       <Col key={index} xs={12} sm={6} md={4} lg={2}>
