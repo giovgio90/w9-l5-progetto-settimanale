@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Col, Spinner } from "react-bootstrap";
 
-class TheWalkingDead extends Component {
+class GridFilm extends Component {
   state = {
     movies: [],
     error: "",
@@ -10,7 +10,7 @@ class TheWalkingDead extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch("https://www.omdbapi.com/?apikey=c07b50c9&s=The Walking dead");
+      const response = await fetch("https://www.omdbapi.com/?apikey=c07b50c9&s=" + this.props.moviesName);
       if (!response.ok) {
         this.setState({ error: `status: ${response.status}` });
       } else {
@@ -54,4 +54,4 @@ class TheWalkingDead extends Component {
   }
 }
 
-export default TheWalkingDead;
+export default GridFilm;

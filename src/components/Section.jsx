@@ -31,7 +31,7 @@ const Section = () => {
           </Dropdown>
         </Col>
         <Col xs={4} sm={5} md={5} lg={6} className="d-flex justify-content-end align-self-center">
-          <div className="border px-2 pt-0">
+          <div className="border px-2 pt-0 border border-secondary">
             <FaList className="text-white-50" />
           </div>
           <div className="border px-2 pt-0 pb-1 border border-secondary">
